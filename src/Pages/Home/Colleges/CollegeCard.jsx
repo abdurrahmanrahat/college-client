@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ButtonDesign from "../../../components/ButtonDesign/ButtonDesign";
 
 const CollegeCard = ({ college }) => {
@@ -46,7 +47,9 @@ const CollegeCard = ({ college }) => {
         <p className="text-neutral-800">
           <span className="font-semibold">Admission On:</span> {admissionDate}
         </p>
-        <ButtonDesign name="Details" bgColor="#FFBD00"></ButtonDesign>
+        <Link to={`/college/${_id}`}>
+          <ButtonDesign name="Details" bgColor="#FFBD00"></ButtonDesign>
+        </Link>
       </div>
     </div>
   );

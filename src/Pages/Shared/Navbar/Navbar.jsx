@@ -1,6 +1,8 @@
 import ActiveLink from "../../../components/ActiveLink/ActiveLink";
 import Logo from "../../../assets/bookLogo-notBg.png";
 import "./Navbar.css";
+import ButtonDesign from "../../../components/ButtonDesign/ButtonDesign";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const navLinks = (
@@ -48,7 +50,6 @@ const Navbar = () => {
         </div>
         <div className="flex">
           <img src={Logo} className="w-40 rounded ml-6 md:ml-0" alt="" />
-          <h2 className="md:hidden text-xl font-bold mt-2 ml-8">College</h2>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -57,7 +58,9 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        
+        <Link to='/login'>
+          <ButtonDesign name="Login" bgColor="#FFBD00"></ButtonDesign>
+        </Link>
       </div>
     </div>
   );

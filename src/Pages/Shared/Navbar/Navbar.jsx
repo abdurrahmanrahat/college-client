@@ -3,8 +3,12 @@ import Logo from "../../../assets/bookLogo-notBg.png";
 import "./Navbar.css";
 import ButtonDesign from "../../../components/ButtonDesign/ButtonDesign";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   const navLinks = (
     <>
       <li>
@@ -49,7 +53,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex">
-          <img src={Logo} className="w-40 rounded ml-6 md:ml-0" alt="" />
+          <img src={Logo} className="w-40 rounded ml-2 md:ml-0" alt="" />
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -58,7 +62,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to='/login'>
+        {user ? (
+          <img className="w-10 mr-4 rounded-full" src={user.photoURL} alt="" />
+        ) : (
+          ""
+        )}
+        <Link to="/login">
           <ButtonDesign name="Login" bgColor="#FFBD00"></ButtonDesign>
         </Link>
       </div>

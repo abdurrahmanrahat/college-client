@@ -1,8 +1,12 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import usePasswordToggle from "../../Hooks/usePasswordToggle";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+  const { user } = useContext(AuthContext);
+
   const [passwordInputType, toggleIcon] = usePasswordToggle();
 
   const { register, handleSubmit } = useForm();

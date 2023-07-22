@@ -16,8 +16,16 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState("Rahat");
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [colleges, setColleges] = useState([]);
+
+  // get colleges data from database
+  useEffect(() => {
+    fetch("http://localhost:5000/colleges")
+      .then((res) => res.json())
+      .then((data) => setColleges(data));
+  }, []);
 
   // create user
   const createUser = (email, password) => {
@@ -70,6 +78,7 @@ const AuthProvider = ({ children }) => {
     googleSignIn,
     logOut,
     updateUserProfile,
+    colleges,
   };
 
   return (

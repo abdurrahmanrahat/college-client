@@ -1,18 +1,20 @@
 import Carousel from "../Carousel/Carousel";
 import Colleges from "../Colleges/Colleges";
 import Gallery from "../Gallery/Gallery";
+import Research from "../Research/Research";
 
 const Home = () => {
-    return (
-        <div>
-            <Carousel></Carousel>
+  return (
+    <div>
+      <Carousel></Carousel>
 
-            <Colleges></Colleges>
+      <Colleges></Colleges>
 
-            <Gallery></Gallery>
-            <h2>Home Page</h2>
-        </div>
-    );
+      <Gallery></Gallery>
+
+      <Research></Research>
+    </div>
+  );
 };
 
 export default Home;

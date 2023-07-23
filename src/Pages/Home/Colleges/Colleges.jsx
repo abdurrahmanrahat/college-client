@@ -3,7 +3,6 @@ import CollegeCard from "./CollegeCard";
 import useData from "../../../Hooks/useData";
 
 const Colleges = () => {
-  // const { colleges } = useContext(AuthContext);
   const [colleges] = useData();
 
   return (

@@ -20,7 +20,7 @@ const CollegeDetails = () => {
   return (
     <div>
         <SectionTitle subHeading='See Details' heading='One College'></SectionTitle>
-      <div className="md:flex gap-6 py-8">
+      <div className="md:flex gap-6 py-8 md:px-6">
         <div className="md:w-2/3">
           <div className="relative h-80 rounded-lg overflow-hidden">
             <img

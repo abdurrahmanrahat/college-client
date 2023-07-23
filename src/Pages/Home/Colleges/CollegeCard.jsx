@@ -13,7 +13,7 @@ const CollegeCard = ({ college }) => {
   } = college;
 
   return (
-    <div className="card w-96 bg-base-100 shadow-xl rounded-lg p-4 border border-neutral-700">
+    <div className="card md:w-96 bg-base-100 shadow-xl rounded-lg p-4 border border-neutral-700">
       <figure className="relative h-40">
         <img
           className="w-full h-full object-cover rounded-t-lg"

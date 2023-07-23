@@ -1,11 +1,11 @@
-import { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import CollegeCard from "./CollegeCard";
+import useData from "../../../Hooks/useData";
 
 const Colleges = () => {
-  const { colleges } = useContext(AuthContext);
-  console.log(colleges);
+  // const { colleges } = useContext(AuthContext);
+  const [colleges] = useData();
+
   return (
     <div className="mt-24">
       <SectionTitle

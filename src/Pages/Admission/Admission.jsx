@@ -31,7 +31,7 @@ const Admission = () => {
               <tr key={c._id} className="border-t border-neutral-200">
                 <td className="text-lg text-center">{c.collegeName}</td>
                 <td>
-                  <Link to={`/college/${c._id}`}>
+                  <Link to={`/admitForm/${c._id}`}>
                     <ButtonDesign
                       name="Admit"
                       bgColor="#FFBD00"

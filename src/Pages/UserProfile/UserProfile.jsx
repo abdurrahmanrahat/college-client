@@ -33,7 +33,7 @@ const UserProfile = () => {
         <div className="md:w-2/5">
           <img
             className="w-48 h-48 mx-auto mb-4 rounded-full object-cover"
-            src={students?.photo}
+            src={user?.photoURL}
             alt=""
           />
           <Link to='/profileEdit'>

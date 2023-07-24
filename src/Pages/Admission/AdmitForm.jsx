@@ -19,7 +19,7 @@ const AdmitForm = () => {
   // console.log(students);
 
   const alreadyAdmitted = students.filter((s) => s.email == user.email);
-  // console.log(alreadyAdmitted);
+  console.log(alreadyAdmitted);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -39,16 +39,7 @@ const AdmitForm = () => {
     };
     // console.log(userInfo);
 
-    if (alreadyAdmitted) {
-      Swal.fire({
-        title: "Error!",
-        text: "You already admitted, hush!!",
-        icon: "error",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      reset();
-    } else {
+    if (alreadyAdmitted.length === 0) {
       // send newItem to the server with http request
       fetch("http://localhost:5000/students", {
         method: "POST",
@@ -71,6 +62,15 @@ const AdmitForm = () => {
             });
           }
         });
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "You already admitted, hush!!",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      reset();
     }
   };
 

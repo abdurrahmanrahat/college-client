@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const MyCollege = () => {
   const [student, setStudent] = useState([]);
@@ -26,21 +27,38 @@ const MyCollege = () => {
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    const { review } = data;
-    console.log(review);
+    const { message } = data;
+    console.log(message);
 
-    // const userInfo = {
-    //   name,
-    //   email,
-    //   photo: user.photoURL,
-    //   number,
-    //   subject,
-    //   address,
-    //   birth,
-    //   collegeName: college.collegeName,
-    //   college,
-    // };
-    // console.log(userInfo);
+    const testimonial = {
+      name: user.displayName,
+      photo: user.photoURL,
+      message,
+      rating: 5,
+    };
+
+    // send testimonial to the server with http request
+    fetch("http://localhost:5000/reviews", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(testimonial),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("inside post response", data);
+        if (data.insertedId) {
+          reset();
+          Swal.fire({
+            title: "Success!",
+            text: "Your review done, Hurry!!",
+            icon: "success",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
 
   return (
@@ -96,8 +114,8 @@ const MyCollege = () => {
           <div className="md:w-2/3 mx-auto">
             <div className="form-control mx-auto">
               <textarea
-                {...register("review", { required: true })}
-                className="textarea textarea-bordered"
+                {...register("message", { required: true })}
+                className="textarea textarea-bordered border rounded-md border-gray-300 focus:outline-[#0B0016] bg-gray-100 text-gray-900"
               />
             </div>
           </div>

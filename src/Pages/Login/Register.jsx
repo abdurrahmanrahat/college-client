@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import usePasswordToggle from "../../Hooks/usePasswordToggle";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
@@ -48,7 +48,9 @@ const Register = () => {
               const photo = imgResponse.data.display_url;
               // Update Profile
               updateUserProfile(name, photo)
-                .then(() => {})
+                .then(() => {
+                  Navigate('/');
+                })
                 .catch((err) => {
                   console.log(err);
                 });

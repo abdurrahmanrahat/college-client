@@ -12,7 +12,7 @@ const AdmitForm = () => {
   const [students, setStudents] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/student")
+    fetch("https://college-server-gilt.vercel.app/student")
       .then((res) => res.json())
       .then((data) => setStudents(data));
   }, []);
@@ -41,7 +41,7 @@ const AdmitForm = () => {
 
     if (alreadyAdmitted.length === 0) {
       // send newItem to the server with http request
-      fetch("http://localhost:5000/students", {
+      fetch("https://college-server-gilt.vercel.app/students", {
         method: "POST",
         headers: {
           "content-type": "application/json",

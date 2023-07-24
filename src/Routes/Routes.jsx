@@ -35,7 +35,7 @@ const router = createBrowserRouter([
         path: "college/:id",
         element: <PrivateRoute><CollegeDetails></CollegeDetails></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/colleges/${params.id}`),
+          fetch(`https://college-server-gilt.vercel.app/colleges/${params.id}`),
       },
       {
         path: "colleges",
@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         path: "admitForm/:id",
         element: <PrivateRoute><AdmitForm></AdmitForm></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/colleges/${params.id}`),
+          fetch(`https://college-server-gilt.vercel.app/colleges/${params.id}`),
       },
       {
         path: "myCollege",

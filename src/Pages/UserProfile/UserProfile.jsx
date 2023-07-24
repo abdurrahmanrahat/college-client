@@ -8,7 +8,7 @@ const UserProfile = () => {
   const [students, setStudents] = useState([]);
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/student?email=${user?.email}`;
+  const url = `https://college-server-gilt.vercel.app/student?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url, {

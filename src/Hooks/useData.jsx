@@ -5,7 +5,7 @@ const useData = () => {
 
   // get colleges data from database
   useEffect(() => {
-    fetch("http://localhost:5000/colleges")
+    fetch("https://college-server-gilt.vercel.app/colleges")
       .then((res) => res.json())
       .then((data) => setColleges(data));
   }, []);

@@ -10,7 +10,7 @@ const MyCollege = () => {
   const [student, setStudent] = useState([]);
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/student?email=${user?.email}`;
+  const url = `https://college-server-gilt.vercel.app/student?email=${user?.email}`;
 
   useEffect(() => {
     fetch(url, {
@@ -38,7 +38,7 @@ const MyCollege = () => {
     };
 
     // send testimonial to the server with http request
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://college-server-gilt.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

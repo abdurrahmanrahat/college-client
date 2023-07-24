@@ -4,6 +4,7 @@ import { useContext, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { signIn, resetPassword } = useContext(AuthContext);
@@ -141,10 +142,9 @@ const Login = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
-        <br />
 
-        {/* Google Signin Button */}
-        {/* <GoogleSignIn></GoogleSignIn> */}
+        {/* Social Signin Button */}
+        <SocialLogin></SocialLogin>
 
         <p className="px-6 text-sm text-center text-gray-400">
           Do not have an account yet?{" "}

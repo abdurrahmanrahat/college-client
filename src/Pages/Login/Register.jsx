@@ -3,12 +3,13 @@ import usePasswordToggle from "../../Hooks/usePasswordToggle";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const image_hoisting_token = import.meta.env.VITE_image_uplode_token;
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [passwordInputType, toggleIcon] = usePasswordToggle();
 
@@ -49,7 +50,7 @@ const Register = () => {
               // Update Profile
               updateUserProfile(name, photo)
                 .then(() => {
-                  navigate('/');
+                  navigate("/");
                 })
                 .catch((err) => {
                   console.log(err);
@@ -184,10 +185,9 @@ const Register = () => {
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
         </div>
-        <br />
 
-        {/* Google Signin Button */}
-        {/* <GoogleSignIn></GoogleSignIn> */}
+        {/* Social Signin Button */}
+        <SocialLogin></SocialLogin>
 
         <p className="px-6 text-sm text-center text-gray-400">
           Already have an account?{" "}

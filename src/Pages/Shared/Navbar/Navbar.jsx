@@ -70,7 +70,9 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
+          <Link to="/userProfile">
           <img className="w-10 mr-4 rounded-full" src={user.photoURL} alt="" />
+          </Link>
         ) : (
           ""
         )}

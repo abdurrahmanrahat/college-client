@@ -68,7 +68,7 @@ const MyCollege = () => {
         title="Graduate Space"
         des="Here shows simple details of my admitted college"
       ></PageBanner>
-      <div className="m-20 bg-white rounded-lg shadow-md p-8 text-center">
+      <div className="md:m-20 bg-white rounded-lg shadow-md p-8 text-center">
         <img
           className="md:w-2/3 mx-auto h-80 object-cover rounded-t-lg"
           src={college?.collegeImg}

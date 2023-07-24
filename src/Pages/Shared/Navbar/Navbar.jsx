@@ -27,9 +27,11 @@ const Navbar = () => {
       <li>
         <ActiveLink to="/admission">Admission</ActiveLink>
       </li>
-      <li>
-        <ActiveLink to="/myCollege">My College</ActiveLink>
-      </li>
+      {user && (
+        <li>
+          <ActiveLink to="/myCollege">My College</ActiveLink>
+        </li>
+      )}
     </>
   );
 
@@ -71,7 +73,11 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <Link to="/userProfile">
-          <img className="w-10 mr-4 rounded-full" src={user.photoURL} alt="" />
+            <img
+              className="w-10 mr-4 rounded-full"
+              src={user.photoURL}
+              alt=""
+            />
           </Link>
         ) : (
           ""

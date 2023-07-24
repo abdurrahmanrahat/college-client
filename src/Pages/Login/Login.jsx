@@ -3,13 +3,15 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import usePasswordToggle from "../../Hooks/usePasswordToggle";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.form?.pathname || "/";
+  const from = location?.state?.form?.pathname || "/";
 
   const [passwordInputType, toggleIcon] = usePasswordToggle();
 
@@ -26,10 +28,16 @@ const Login = () => {
       .then(() => {
         // const user = result.user;
         // console.log(user);
+        toast.success('Login successfully', {
+          position: "top-center",
+        });
         navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
+        toast.error(error.message, {
+          position: "top-center",
+        });
       });
   };
 
@@ -115,6 +123,7 @@ const Login = () => {
           </Link>
         </p>
       </div>
+      <ToastContainer />
     </div>
   );
 };

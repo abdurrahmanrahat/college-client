@@ -10,6 +10,7 @@ import Admission from "../Pages/Admission/Admission";
 import AdmitForm from "../Pages/Admission/AdmitForm";
 import MyCollege from "../Pages/MyCollege/MyCollege";
 import UserProfile from "../Pages/UserProfile/UserProfile";
+import ProfileEdit from "../Pages/UserProfile/ProfileEdit/ProfileEdit";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "userProfile",
         element: <UserProfile></UserProfile>
+      },
+      {
+        path: "profileEdit",
+        element: <ProfileEdit></ProfileEdit>
       }
     ],
   },

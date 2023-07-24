@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEdit } from "react-icons/fa";
 import ButtonDesign from "../../components/ButtonDesign/ButtonDesign";
+import { Link } from "react-router-dom";
 
 const UserProfile = () => {
   const [students, setStudents] = useState([]);
@@ -22,9 +23,11 @@ const UserProfile = () => {
     <div className="my-10 md:mx-48 p-8 bg-gradient-to-br from-yellow-200 to-yellow-300 rounded-lg shadow-md text-center">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-4xl font-bold text-neutral-900">My Profile</h2>
-        <button className="text-xl font-semibold bg-white px-4 py-2 rounded-lg hover:bg-yellow-500 transition-colors duration-300">
-          <FaEdit className="inline -mt-1" /> Edit
-        </button>
+        <Link to='/profileEdit'>
+          <button className="text-xl font-semibold bg-white px-4 py-2 rounded-lg hover:bg-yellow-500 transition-colors duration-300">
+            <FaEdit className="inline -mt-1" /> Edit
+          </button>
+        </Link>
       </div>
       <div className="md:flex md:items-center mt-8">
         <div className="md:w-2/5">
@@ -33,13 +36,15 @@ const UserProfile = () => {
             src={students?.photo}
             alt=""
           />
-          <span className="inline-block">
-            <ButtonDesign
-              name="Edit Profile"
-              bgColor="#FFBD00"
-              textColor="#000000"
-            ></ButtonDesign>
-          </span>
+          <Link to='/profileEdit'>
+            <span className="inline-block">
+              <ButtonDesign
+                name="Edit Profile"
+                bgColor="#FFBD00"
+                textColor="#000000"
+              ></ButtonDesign>
+            </span>
+          </Link>
         </div>
         <div className="md:w-3/5 text-left md:pl-10 flex flex-col gap-6">
           <div className="flex flex-col gap-1">

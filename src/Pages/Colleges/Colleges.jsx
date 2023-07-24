@@ -7,7 +7,7 @@ const Colleges = () => {
   const [colleges] = useData();
 
   return (
-    <div>
+    <div className="mt-14 md:mt-0">
       <PageBanner
         CoverImg={CollegePageCover}
         title="All Colleges Together"

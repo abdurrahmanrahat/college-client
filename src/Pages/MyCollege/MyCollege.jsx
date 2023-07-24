@@ -62,7 +62,7 @@ const MyCollege = () => {
   };
 
   return (
-    <div>
+    <div className="mt-14 md:mt-0">
       <PageBanner
         CoverImg={myCollegeImg}
         title="Graduate Space"

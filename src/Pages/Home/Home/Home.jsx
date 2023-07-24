@@ -6,7 +6,7 @@ import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
   return (
-    <div>
+    <div className="mt-14 md:mt-0">
       <Carousel></Carousel>
 
       <Colleges></Colleges>

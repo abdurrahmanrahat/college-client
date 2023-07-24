@@ -37,7 +37,7 @@ const UserProfile = () => {
             alt=""
           />
           <Link to='/profileEdit'>
-            <span className="inline-block">
+            <span className="md:inline-block hidden">
               <ButtonDesign
                 name="Edit Profile"
                 bgColor="#FFBD00"
@@ -46,7 +46,7 @@ const UserProfile = () => {
             </span>
           </Link>
         </div>
-        <div className="md:w-3/5 text-left md:pl-10 flex flex-col gap-6">
+        <div className="md:w-3/5 md:text-left md:pl-10 flex flex-col gap-6">
           <div className="flex flex-col gap-1">
             <h4 className="text-xl font-bold text-neutral-800">Student ID:</h4>
             <p className="text-lg text-neutral-700">BCIC12-20023</p>

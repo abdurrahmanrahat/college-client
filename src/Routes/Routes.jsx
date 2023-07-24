@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       },
       {
         path: "admitForm/:id",
-        element: <AdmitForm></AdmitForm>,
+        element: <PrivateRoute><AdmitForm></AdmitForm></PrivateRoute>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/colleges/${params.id}`),
       },

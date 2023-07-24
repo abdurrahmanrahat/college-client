@@ -1,4 +1,4 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import usePasswordToggle from "../../Hooks/usePasswordToggle";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
@@ -8,7 +8,7 @@ const image_hoisting_token = import.meta.env.VITE_image_uplode_token;
 
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
 
   const [passwordInputType, toggleIcon] = usePasswordToggle();
 
@@ -49,7 +49,7 @@ const Register = () => {
               // Update Profile
               updateUserProfile(name, photo)
                 .then(() => {
-                  Navigate('/');
+                  navigate('/');
                 })
                 .catch((err) => {
                   console.log(err);
@@ -64,7 +64,7 @@ const Register = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="flex flex-col w-2/5 p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
+      <div className="flex flex-col md:w-2/5 p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign UP</h1>
           <p className="text-sm text-gray-400">Sign up as a new student</p>

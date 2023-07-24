@@ -9,7 +9,7 @@ const Admission = () => {
   const [colleges] = useData();
 
   return (
-    <div className="mb-10">
+    <div className="mb-10 mt-14 md:mt-0">
       <PageBanner
         CoverImg={AdmissionPageCover}
         title="Join College"

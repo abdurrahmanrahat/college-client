@@ -56,13 +56,15 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-3 shadow bg-base-100 rounded-box w-36"
+            className="menu menu-sm dropdown-content -mt-12 px-3 shadow bg-base-100 rounded-box w-36"
           >
             {navLinks}
           </ul>
         </div>
         <div className="flex">
-          <img src={Logo} className="w-40 rounded ml-2 md:ml-0" alt="" />
+          <Link to="/">
+            <img src={Logo} className="w-40 rounded ml-2 md:ml-0" alt="" />
+          </Link>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">

@@ -18,7 +18,7 @@ const AdmitForm = () => {
   }, []);
   // console.log(students);
 
-  const alreadyAdmitted = students.filter((s) => s.email == user.email);
+  const alreadyAdmitted = students?.filter((s) => s.email == user?.email);
   console.log(alreadyAdmitted);
 
   const { register, handleSubmit, reset } = useForm();
@@ -92,7 +92,7 @@ const AdmitForm = () => {
             <input
               type="text"
               placeholder="Your name"
-              defaultValue={user.displayName}
+              defaultValue={user?.displayName}
               {...register("name", { required: true, maxLength: 80 })}
               className="input input-bordered w-full "
             />
@@ -106,7 +106,7 @@ const AdmitForm = () => {
             <input
               type="email"
               placeholder="Your email"
-              defaultValue={user.email}
+              defaultValue={user?.email}
               {...register("email", { required: true, maxLength: 80 })}
               className="input input-bordered w-full"
             />

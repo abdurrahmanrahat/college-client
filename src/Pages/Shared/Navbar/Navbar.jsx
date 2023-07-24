@@ -7,7 +7,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+
+  // handleLogout
+  const handleLogout = () => {
+    logOut()
+      .then(() => {})
+      .then((e) => console.log(e));
+  };
 
   const navLinks = (
     <>
@@ -67,9 +74,15 @@ const Navbar = () => {
         ) : (
           ""
         )}
-        <Link to="/login">
-          <ButtonDesign name="Login" bgColor="#FFBD00"></ButtonDesign>
-        </Link>
+        {user ? (
+          <span onClick={handleLogout}>
+            <ButtonDesign name="Logout" bgColor="#FFBD00"></ButtonDesign>
+          </span>
+        ) : (
+          <Link to="/login">
+            <ButtonDesign name="Login" bgColor="#FFBD00"></ButtonDesign>
+          </Link>
+        )}
       </div>
     </div>
   );

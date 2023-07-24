@@ -1,11 +1,15 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import usePasswordToggle from "../../Hooks/usePasswordToggle";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const { user } = useContext(AuthContext);
+  const { signIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.form?.pathname || "/";
 
   const [passwordInputType, toggleIcon] = usePasswordToggle();
 
@@ -18,6 +22,15 @@ const Login = () => {
     console.log(email, password);
 
     // sign in user
+    signIn(email, password)
+      .then(() => {
+        // const user = result.user;
+        // console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   return (

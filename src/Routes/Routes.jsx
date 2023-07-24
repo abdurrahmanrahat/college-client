@@ -8,6 +8,7 @@ import CollegeDetails from "../Pages/Home/Colleges/CollegeDetails";
 import Colleges from "../Pages/Colleges/Colleges";
 import Admission from "../Pages/Admission/Admission";
 import AdmitForm from "../Pages/Admission/AdmitForm";
+import MyCollege from "../Pages/MyCollege/MyCollege";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/colleges/${params.id}`),
       },
+      {
+        path: "myCollege",
+        element: <MyCollege></MyCollege>
+      }
     ],
   },
 ]);

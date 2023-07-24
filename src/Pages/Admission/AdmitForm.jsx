@@ -1,13 +1,25 @@
 import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const AdmitForm = () => {
   const college = useLoaderData();
   const { user } = useContext(AuthContext);
+
+  const [students, setStudents] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/student")
+      .then((res) => res.json())
+      .then((data) => setStudents(data));
+  }, []);
+  // console.log(students);
+
+  const alreadyAdmitted = students.filter((s) => s.email == user.email);
+  // console.log(alreadyAdmitted);
 
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -25,30 +37,41 @@ const AdmitForm = () => {
       collegeName: college.collegeName,
       college,
     };
-    console.log(userInfo);
+    // console.log(userInfo);
 
-    // send newItem to the server with http request
-    fetch("http://localhost:5000/students", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(userInfo),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("inside post response", data);
-        if(data.insertedId){
+    if (alreadyAdmitted) {
+      Swal.fire({
+        title: "Error!",
+        text: "You already admitted, hush!!",
+        icon: "error",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      reset();
+    } else {
+      // send newItem to the server with http request
+      fetch("http://localhost:5000/students", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(userInfo),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("inside post response", data);
+          if (data.insertedId) {
             reset();
             Swal.fire({
-                title: 'Success!',
-                text: 'Your Admission done, Hurry!!',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1500
-            })
-        }
-      });
+              title: "Success!",
+              text: "Your Admission done, Hurry!!",
+              icon: "success",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+    }
   };
 
   return (
@@ -69,6 +92,7 @@ const AdmitForm = () => {
             <input
               type="text"
               placeholder="Your name"
+              defaultValue={user.displayName}
               {...register("name", { required: true, maxLength: 80 })}
               className="input input-bordered w-full "
             />
@@ -82,6 +106,7 @@ const AdmitForm = () => {
             <input
               type="email"
               placeholder="Your email"
+              defaultValue={user.email}
               {...register("email", { required: true, maxLength: 80 })}
               className="input input-bordered w-full"
             />

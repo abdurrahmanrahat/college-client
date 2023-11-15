@@ -54,6 +54,7 @@ const Login = () => {
       });
       return;
     }
+    
     // Reset Pass
     resetPassword(email).then(() => {
       toast

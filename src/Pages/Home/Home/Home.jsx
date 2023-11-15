@@ -2,6 +2,7 @@ import Carousel from "../Carousel/Carousel";
 import Colleges from "../Colleges/Colleges";
 import Gallery from "../Gallery/Gallery";
 import Research from "../Research/Research";
+import Subscribe from "../Subscribe/Subscribe";
 import Testimonial from "../Testimonial/Testimonial";
 
 const Home = () => {
@@ -16,6 +17,8 @@ const Home = () => {
       <Research></Research>
 
       <Testimonial></Testimonial>
+
+      <Subscribe></Subscribe>
     </div>
   );
 };

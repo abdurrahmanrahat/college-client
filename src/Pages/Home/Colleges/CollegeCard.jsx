@@ -48,7 +48,7 @@ const CollegeCard = ({ college }) => {
           <span className="font-semibold">Admission On:</span> {admissionDate}
         </p>
         <Link to={`/college/${_id}`}>
-          <ButtonDesign name="Details" bgColor="#FFBD00"></ButtonDesign>
+          <ButtonDesign name="Details" bgColor="#FFAE27"></ButtonDesign>
         </Link>
       </div>
     </div>

@@ -123,7 +123,7 @@ const MyCollege = () => {
           {/* Submit Button */}
           <div className="text-center my-10">
             <input
-              className="btn mt-4 uppercase bg-[#FFBD00] hover:bg-black hover:scale-95 transition-transform duration-600 border-0 hover:border-2 border-white text-white font-medium rounded"
+              className="btn mt-4 uppercase bg-[#FFAE27] hover:bg-black hover:scale-95 transition-transform duration-600 border-0 hover:border-2 border-white text-white font-medium rounded"
               type="submit"
               value="Feedback"
             />

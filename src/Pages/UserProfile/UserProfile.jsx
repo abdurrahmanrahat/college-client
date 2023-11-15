@@ -40,7 +40,7 @@ const UserProfile = () => {
             <span className="md:inline-block hidden">
               <ButtonDesign
                 name="Edit Profile"
-                bgColor="#FFBD00"
+                bgColor="#FFAE27"
                 textColor="#000000"
               ></ButtonDesign>
             </span>

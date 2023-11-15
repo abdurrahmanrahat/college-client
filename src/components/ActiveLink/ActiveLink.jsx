@@ -4,7 +4,7 @@ const ActiveLink = ({ to, children }) => {
     return (
         <NavLink
             to={to}
-            className={({ isActive }) => isActive ? 'text-[#FEE600]' : ''}
+            className={({ isActive }) => isActive ? 'text-[#FFAE27]' : ''}
         >
             {children}
         </NavLink>

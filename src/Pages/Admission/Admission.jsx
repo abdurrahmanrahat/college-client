@@ -34,7 +34,7 @@ const Admission = () => {
                   <Link to={`/admitForm/${c._id}`}>
                     <ButtonDesign
                       name="Admit"
-                      bgColor="#FFBD00"
+                      bgColor="#FFAE27"
                       textColor="#000000"
                     ></ButtonDesign>
                   </Link>

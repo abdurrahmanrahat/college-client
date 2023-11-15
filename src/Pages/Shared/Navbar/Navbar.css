@@ -4,5 +4,6 @@ ul li {
 }
 
 ul li:hover {
-    color: #FEE600;
+    color: #FFAE27;
+    transition-duration: 300ms;
 }

@@ -17,7 +17,7 @@ const ErrorPage = () => {
                     </p>
                     <Link
                         to='/'
-                        className='px-8 py-3 font-semibold rounded btn bg-[#FFBD00] hover:bg-[#0E0C1A] text-black hover:text-white'
+                        className='px-8 py-3 font-semibold rounded btn bg-[#FFAE27] hover:bg-[#0E0C1A] text-black hover:text-white'
                     >
                         <FaArrowLeft /> Go to homepage
                     </Link>

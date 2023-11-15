@@ -35,7 +35,7 @@ const CardOfCollege = ({ college }) => {
         <Link to={`/college/${_id}`}>
           <ButtonDesign
             name="Details"
-            bgColor="#FFBD00"
+            bgColor="#FFAE27"
             textColor="#000000"
           ></ButtonDesign>
         </Link>

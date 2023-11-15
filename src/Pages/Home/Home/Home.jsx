@@ -1,5 +1,6 @@
 import Carousel from "../Carousel/Carousel";
 import Colleges from "../Colleges/Colleges";
+import CountParallax from "../CountParallax/CountParallax";
 import Gallery from "../Gallery/Gallery";
 import Research from "../Research/Research";
 import Subscribe from "../Subscribe/Subscribe";
@@ -15,6 +16,8 @@ const Home = () => {
       <Gallery></Gallery>
 
       <Research></Research>
+
+      <CountParallax></CountParallax>
 
       <Testimonial></Testimonial>
 
